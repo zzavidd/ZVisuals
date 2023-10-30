@@ -1,18 +1,36 @@
 'use client';
 
-import { Stack, alpha } from '@mui/material';
+import { Button, Stack, alpha } from '@mui/material';
+import * as html2Image from 'html-to-image';
 import Image from 'next/image';
 
+import { useRef, useState } from 'react';
 import { CANVAS_HEIGHT, CANVAS_WIDTH } from 'src/constants';
 import bgImage from 'src/public/zavid2.JPG';
 
 export default function Canvas({ children }: React.PropsWithChildren) {
+  const [state, setState] = useState({ url: '' });
+  const elementRef = useRef<HTMLDivElement>(null);
+
+  async function preview() {
+    const element = elementRef.current;
+    if (!element) return;
+
+    const url = await html2Image.toPng(element, {
+      canvasHeight: CANVAS_HEIGHT,
+      canvasWidth: CANVAS_WIDTH,
+      pixelRatio: 3,
+    });
+    setState({ url });
+  }
+
   return (
-    <Stack width={'100%'}>
+    <Stack direction={'row'} width={'100%'}>
       <Stack
         height={CANVAS_HEIGHT}
         width={CANVAS_WIDTH}
         p={6}
+        ref={elementRef}
         sx={{
           backgroundColor: (t) => alpha(t.palette.primary.main, 0.95),
           position: 'relative',
@@ -33,6 +51,17 @@ export default function Canvas({ children }: React.PropsWithChildren) {
           {children}
         </Stack>
       </Stack>
+      {state.url ? (
+        <Image
+          src={state.url}
+          alt={'preview'}
+          width={CANVAS_WIDTH}
+          height={CANVAS_HEIGHT}
+        />
+      ) : null}
+      <Button variant={'contained'} onClick={preview}>
+        Download
+      </Button>
     </Stack>
   );
 }
