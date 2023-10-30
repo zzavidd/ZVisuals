@@ -34,8 +34,9 @@ export default function Home() {
               Worship Night
             </Typography>
           </Stack>
-          <Typography>
-            Celebrating life by glorifying the name of Jesus.
+          <Typography px={3}>
+            Celebrating life with a night of songful expression, reconnection
+            and reverence of Christ.
           </Typography>
         </Stack>
         <Image
@@ -44,7 +45,7 @@ export default function Home() {
           height={250}
           alt={'bg'}
           style={{
-            border: `6px double ${theme.palette.divider}`,
+            border: `9px double ${theme.palette.divider}`,
             borderRadius: '50%',
             objectFit: 'cover',
             objectPosition: '0 -5px',

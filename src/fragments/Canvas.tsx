@@ -32,7 +32,7 @@ export default function Canvas({ children }: React.PropsWithChildren) {
         p={6}
         ref={elementRef}
         sx={{
-          backgroundColor: (t) => alpha(t.palette.primary.main, 0.95),
+          backgroundColor: (t) => alpha(t.palette.primary.main, 0.9),
           position: 'relative',
           overflow: 'hidden',
         }}>
