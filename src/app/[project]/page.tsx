@@ -16,6 +16,10 @@ export function generateMetadata({ params }: ProjectPageProps): Metadata {
   };
 }
 
+export function generateStaticParams() {
+  return Object.keys(PROJECTS).map((project) => ({ project }));
+}
+
 interface ProjectPageProps {
   params: {
     project: keyof typeof PROJECTS;

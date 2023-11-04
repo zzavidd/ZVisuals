@@ -7,14 +7,14 @@ import bgImage from './assets/zavid2.JPG';
 
 export default function Canvas({
   children,
-  dimensions,
+  settings,
   elementRef,
 }: CanvasProps) {
   return (
     <Stack
-      height={dimensions.height}
-      width={dimensions.width}
-      p={6}
+      height={settings.height}
+      width={settings.width}
+      p={5}
       ref={elementRef}
       sx={{
         backgroundColor: (t) => alpha(t.palette.background.default, 0.9),
@@ -29,7 +29,7 @@ export default function Canvas({
           style={{
             filter: 'blur(7px) grayscale(100%)',
             objectFit: 'cover',
-            objectPosition: '-100px 0',
+            objectPosition: settings.objectPosition,
             zIndex: -1,
           }}
         />

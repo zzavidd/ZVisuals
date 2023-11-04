@@ -9,6 +9,11 @@ export const PROJECTS: ProjectMap = {
     Canvas: Z27WN,
     variants: VARIANTS,
   },
+  '02-whomhavei': {
+    name: 'Whom Have I (Cover Art)',
+    Canvas: Z27WN,
+    variants: VARIANTS,
+  },
 };
 
 interface Project {

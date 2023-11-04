@@ -1,16 +1,18 @@
 declare module '*.JPG';
 
-interface Variant extends Dimensions {
+interface Variant extends Settings {
   label: string;
   Component: React.ReactComponent;
 }
 
-interface Dimensions {
+interface Settings {
   height: number;
   width: number;
+  padding: number;
+  objectPosition?: string;
 }
 
 interface CanvasProps extends React.PropsWithChildren {
-  dimensions: Dimensions;
+  settings: Settings;
   elementRef: React.RefObject<HTMLDivElement>;
 }

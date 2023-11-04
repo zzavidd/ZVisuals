@@ -1,20 +1,42 @@
+import { UNIT } from 'src/utils/constants';
+
 import Landscape from '../Landscape';
 import Portrait from '../Portrait';
-
-const LONGER = 1920 / 2;
-const SHORTER = 1080 / 2;
+import Portrait2 from '../Portrait2';
+import Portrait3 from '../Portrait3';
 
 export const VARIANTS: Variant[] = [
   {
-    label: 'Portrait',
-    height: LONGER,
-    width: SHORTER,
-    Component: Portrait,
+    label: 'Portrait 3',
+    Component: Portrait3,
+    height: UNIT * 10,
+    width: UNIT * 9,
+    objectPosition: '0',
+    padding: 5,
   },
   {
+    label: 'Portrait',
+    Component: Portrait,
+    height: UNIT * 10,
+    width: UNIT * 9,
+    objectPosition: '0',
+    padding: 5,
+  },
+  {
+    label: 'Portrait 2',
+    Component: Portrait2,
+    height: UNIT * 10,
+    width: UNIT * 9,
+    objectPosition: '0',
+    padding: 5,
+  },
+
+  {
     label: 'Landscape',
-    height: SHORTER,
-    width: LONGER,
     Component: Landscape,
+    height: UNIT * 9,
+    width: UNIT * 16,
+    objectPosition: '0 -200px',
+    padding: 6,
   },
 ];

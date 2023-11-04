@@ -31,11 +31,28 @@ const typography: TypographyOptions = {
     fontFamily: rowdies.style.fontFamily,
     fontSize: 16,
     fontWeight: 300,
+    lineHeight: 1.6,
     textTransform: 'uppercase',
   },
   body1: {
     fontFamily: rowdies.style.fontFamily,
     fontWeight: 300,
+    textTransform: 'initial',
+  },
+  body2: {
+    fontFamily: rowdies.style.fontFamily,
+    fontSize: 18,
+    fontWeight: 300,
+    paddingBottom: 12,
+    lineHeight: 1.7,
+    textTransform: 'initial',
+  },
+  body3: {
+    fontFamily: rowdies.style.fontFamily,
+    fontSize: 17.5,
+    fontWeight: 300,
+    paddingBottom: 12,
+    lineHeight: 1.7,
     textTransform: 'initial',
   },
 };

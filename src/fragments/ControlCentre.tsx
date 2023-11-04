@@ -54,7 +54,7 @@ export default function ControlCentre({
         variant={'permanent'}
         sx={{ width: DRAWER_WIDTH }}
         PaperProps={{
-          sx: { p: 5, width: DRAWER_WIDTH, zIndex: (t) => t.zIndex.appBar - 1 },
+          sx: { p: 4, width: DRAWER_WIDTH, zIndex: (t) => t.zIndex.appBar - 1 },
         }}>
         <Toolbar />
         <Stack rowGap={3} width={'100%'}>
@@ -79,7 +79,7 @@ export default function ControlCentre({
         </Stack>
       </Drawer>
       <Stack justifyContent={'center'} alignItems={'center'} width={'100%'}>
-        <Canvas dimensions={selectedVariant} elementRef={elementRef}>
+        <Canvas settings={selectedVariant} elementRef={elementRef}>
           {selectedVariant.Component()}
         </Canvas>
       </Stack>

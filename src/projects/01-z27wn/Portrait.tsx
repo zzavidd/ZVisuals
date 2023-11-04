@@ -2,40 +2,34 @@
 
 import { Stack, Typography } from '@mui/material';
 
-import { Avatar, EventTitle } from './Components';
+import { Avatar, EventDetails, EventTitle } from './Components';
 
 export default function Portrait() {
   return (
     <Stack
       border={(t) => `6px double ${t.palette.divider}`}
       borderRadius={2}
-      justifyContent={'space-evenly'}
-      alignItems={'center'}
       height={'100%'}
       width={'100%'}
-      p={5}>
+      position={'relative'}
+      justifyContent={'space-evenly'}
+      px={5}>
+      <Avatar
+        width={220}
+        style={{ position: 'absolute', bottom: '3%', right: '4%' }}
+      />
       <Stack rowGap={3}>
         <Typography>An open invitation to:</Typography>
-        <EventTitle />
-        <Typography px={3} textAlign={'center'}>
+        <EventTitle
+          StackProps={{ alignItems: 'flex-start' }}
+          TypographyProps={{ fontSize: 72 }}
+        />
+        <Typography maxWidth={(t) => t.spacing(13)}>
           Celebrating life with a night of songful expression, reconnection and
           reverence of Christ.
         </Typography>
       </Stack>
-      <Avatar width={275} />
-      <Stack rowGap={5}>
-        <Stack>
-          <Typography variant={'h2'}>Date & Time:</Typography>
-          <Typography>Friday 1st December 2023</Typography>
-          <Typography>Doors open at 7:00pm</Typography>
-        </Stack>
-        <Stack>
-          <Typography variant={'h2'}>Location:</Typography>
-          <Typography>King&apos;s Church Cambridge</Typography>
-          <Typography>49-53 Tenison Road</Typography>
-          <Typography>Cambridge, CB1 2DG</Typography>
-        </Stack>
-      </Stack>
+      <EventDetails />
     </Stack>
   );
 }

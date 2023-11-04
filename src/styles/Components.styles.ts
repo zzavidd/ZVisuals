@@ -8,12 +8,6 @@ const components: Components<Theme> = {
       },
     },
   },
-  MuiStack: {
-    defaultProps: {
-      alignItems: 'center',
-      justifyContent: 'center',
-    },
-  },
 };
 
 export default components;
