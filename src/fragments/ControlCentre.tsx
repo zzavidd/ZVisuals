@@ -1,11 +1,20 @@
 'use client';
 
-import { Button, FormControlLabel, Radio, RadioGroup } from '@mui/material';
+import {
+  Button,
+  Drawer,
+  FormControlLabel,
+  Radio,
+  RadioGroup,
+  Stack,
+  Toolbar,
+} from '@mui/material';
 import Grid from '@mui/material/Unstable_Grid2';
 import * as html2Image from 'html-to-image';
-import Image from 'next/image';
 import type React from 'react';
 import { useRef, useState } from 'react';
+
+const DRAWER_WIDTH = 175;
 
 export default function ControlCentre({
   Canvas,
@@ -41,39 +50,55 @@ export default function ControlCentre({
 
   return (
     <Grid container={true}>
-      <Grid xs={2} p={5}>
-        <Button variant={'contained'} onClick={togglePreview}>
-          Preview
-        </Button>
-        <RadioGroup
-          defaultValue={state.selectedVariantIndex}
-          onChange={onOptionChange}>
-          {variants.map(({ label }, i) => (
-            <FormControlLabel
-              label={label}
-              value={i}
-              control={<Radio />}
-              key={label}
-            />
-          ))}
-        </RadioGroup>
-      </Grid>
-      <Grid
-        xs={state.imageSrc ? 5 : true}
-        justifyContent={'center'}
-        alignItems={'center'}>
+      <Drawer
+        variant={'permanent'}
+        sx={{ width: DRAWER_WIDTH }}
+        PaperProps={{
+          sx: { p: 5, width: DRAWER_WIDTH, zIndex: (t) => t.zIndex.appBar - 1 },
+        }}>
+        <Toolbar />
+        <Stack rowGap={3} width={'100%'}>
+          <Button
+            variant={'contained'}
+            onClick={togglePreview}
+            fullWidth={true}>
+            Preview
+          </Button>
+          <RadioGroup
+            defaultValue={state.selectedVariantIndex}
+            onChange={onOptionChange}>
+            {variants.map(({ label }, i) => (
+              <FormControlLabel
+                label={label}
+                value={i}
+                control={<Radio />}
+                key={label}
+              />
+            ))}
+          </RadioGroup>
+        </Stack>
+      </Drawer>
+      <Stack justifyContent={'center'} alignItems={'center'} width={'100%'}>
         <Canvas dimensions={selectedVariant} elementRef={elementRef}>
           {selectedVariant.Component()}
         </Canvas>
-      </Grid>
-      <Grid xs={5} display={state.imageSrc ? 'initial' : 'none'}>
-        <Image
-          src={state.imageSrc}
-          alt={'preview'}
-          width={selectedVariant.width}
-          height={selectedVariant.height}
-        />
-      </Grid>
+      </Stack>
+      <Drawer open={!!state.imageSrc} anchor={'right'} variant={'persistent'}>
+        <Stack
+          justifyContent={'center'}
+          alignItems={'center'}
+          height={'100%'}
+          width={'100%'}>
+          <img
+            src={state.imageSrc}
+            alt={'preview'}
+            style={{
+              width: selectedVariant.width,
+              height: selectedVariant.height,
+            }}
+          />
+        </Stack>
+      </Drawer>
     </Grid>
   );
 }
