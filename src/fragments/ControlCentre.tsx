@@ -37,8 +37,8 @@ export default function ControlCentre({
     if (!element) return;
 
     const url = await html2Image.toPng(element, {
-      canvasHeight: selectedVariant.height,
-      canvasWidth: selectedVariant.width,
+      canvasHeight: selectedVariant.settings.height,
+      canvasWidth: selectedVariant.settings.width,
       pixelRatio: 3,
     });
     setState((s) => ({ ...s, imageSrc: url }));
@@ -79,7 +79,7 @@ export default function ControlCentre({
         </Stack>
       </Drawer>
       <Stack justifyContent={'center'} alignItems={'center'} width={'100%'}>
-        <Canvas settings={selectedVariant} elementRef={elementRef}>
+        <Canvas settings={selectedVariant.settings} elementRef={elementRef}>
           {selectedVariant.Component()}
         </Canvas>
       </Stack>
@@ -93,8 +93,8 @@ export default function ControlCentre({
             src={state.imageSrc}
             alt={'preview'}
             style={{
-              width: selectedVariant.width,
-              height: selectedVariant.height,
+              width: selectedVariant.settings.width,
+              height: selectedVariant.settings.height,
             }}
           />
         </Stack>

@@ -7,36 +7,43 @@ import Portrait3 from '../Portrait3';
 
 export const VARIANTS: Variant[] = [
   {
-    label: 'Portrait 3',
-    Component: Portrait3,
-    height: UNIT * 10,
-    width: UNIT * 9,
-    objectPosition: '0',
-    padding: 5,
-  },
-  {
     label: 'Portrait',
     Component: Portrait,
-    height: UNIT * 10,
-    width: UNIT * 9,
-    objectPosition: '0',
-    padding: 5,
+    settings: {
+      height: UNIT * 10,
+      width: UNIT * 9,
+      objectPosition: '0',
+      padding: 5,
+    },
   },
   {
     label: 'Portrait 2',
     Component: Portrait2,
-    height: UNIT * 10,
-    width: UNIT * 9,
-    objectPosition: '0',
-    padding: 5,
+    settings: {
+      height: UNIT * 10,
+      width: UNIT * 9,
+      objectPosition: '0',
+      padding: 5,
+    },
   },
-
+  {
+    label: 'Portrait 3',
+    Component: Portrait3,
+    settings: {
+      height: UNIT * 10,
+      width: UNIT * 9,
+      objectPosition: '0',
+      padding: 5,
+    },
+  },
   {
     label: 'Landscape',
     Component: Landscape,
-    height: UNIT * 9,
-    width: UNIT * 16,
-    objectPosition: '0 -200px',
-    padding: 6,
+    settings: {
+      height: UNIT * 9,
+      width: UNIT * 16,
+      objectPosition: '0 -200px',
+      padding: 6,
+    },
   },
 ];

@@ -1,18 +1,21 @@
-declare module '*.JPG';
+import type React from 'react';
 
-interface Variant extends Settings {
-  label: string;
-  Component: React.ReactComponent;
-}
+declare global {
+  interface Variant {
+    label: string;
+    Component: () => JSX.Element;
+    settings: Settings;
+  }
 
-interface Settings {
-  height: number;
-  width: number;
-  padding: number;
-  objectPosition?: string;
-}
+  interface Settings {
+    height: number;
+    width: number;
+    padding: number;
+    objectPosition?: string;
+  }
 
-interface CanvasProps extends React.PropsWithChildren {
-  settings: Settings;
-  elementRef: React.RefObject<HTMLDivElement>;
+  interface CanvasProps extends React.PropsWithChildren {
+    elementRef: React.RefObject<HTMLDivElement>;
+    settings: Settings;
+  }
 }

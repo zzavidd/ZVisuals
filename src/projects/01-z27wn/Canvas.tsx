@@ -7,8 +7,8 @@ import bgImage from './assets/zavid2.JPG';
 
 export default function Canvas({
   children,
-  settings,
   elementRef,
+  settings,
 }: CanvasProps) {
   return (
     <Stack
