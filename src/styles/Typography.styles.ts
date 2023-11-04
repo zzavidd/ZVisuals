@@ -27,7 +27,7 @@ const typography: TypographyOptions = {
     fontWeight: 700,
   },
   h2: {
-    color: (palette.secondary as SimplePaletteColorOptions).main,
+    color: (palette.primary as SimplePaletteColorOptions).main,
     fontFamily: rowdies.style.fontFamily,
     fontSize: 16,
     fontWeight: 300,

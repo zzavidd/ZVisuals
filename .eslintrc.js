@@ -7,4 +7,7 @@ module.exports = {
     tsconfigRootDir: __dirname,
     project: ['**/tsconfig.json'],
   },
+  rules: {
+    '@typescript-eslint/await-thenable': 'off',
+  },
 };
