@@ -4,6 +4,7 @@ const components: Components<Theme> = {
   MuiCssBaseline: {
     styleOverrides: {
       body: {
+        height: '100vh',
         overscrollBehavior: 'none',
       },
     },

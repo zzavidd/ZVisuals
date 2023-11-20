@@ -58,15 +58,15 @@ export function EventTitle({
   );
 }
 
-export function EventDetails() {
+export function EventDetails({ StackProps }: EventDetailsProps) {
   return (
     <React.Fragment>
-      <Stack>
+      <Stack {...StackProps}>
         <Typography variant={'h2'}>Date & Time:</Typography>
         <Typography>Friday 1st December 2023</Typography>
         <Typography>Doors open at 7:00pm</Typography>
       </Stack>
-      <Stack>
+      <Stack {...StackProps}>
         <Typography variant={'h2'}>Location:</Typography>
         <Typography>King&apos;s Church Cambridge</Typography>
         <Typography>49-53 Tenison Road</Typography>
@@ -105,4 +105,8 @@ export function Signature() {
 interface EventTitleProps {
   StackProps?: StackProps;
   TypographyProps?: Omit<TypographyProps, 'fontSize'> & { fontSize?: number };
+}
+
+interface EventDetailsProps {
+  StackProps?: StackProps;
 }

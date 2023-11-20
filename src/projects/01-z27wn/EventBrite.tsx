@@ -1,10 +1,10 @@
 'use client';
 
-import { Box, Stack, Typography } from '@mui/material';
+import { Stack, Typography } from '@mui/material';
 
 import { Avatar, EventDetails, EventTitle } from './Components';
 
-export default function Landscape() {
+export default function EventBrite() {
   return (
     <Stack
       border={(t) => `6px double ${t.palette.divider}`}
@@ -12,7 +12,8 @@ export default function Landscape() {
       height={'100%'}
       width={'100%'}
       rowGap={4}
-      p={5}>
+      px={4}
+      py={2}>
       <Stack
         direction={'row'}
         justifyContent={'space-between'}
@@ -20,9 +21,9 @@ export default function Landscape() {
         width={'100%'}
         px={5}>
         <Stack px={5} flex={1} justifyContent={'space-evenly'} height={'100%'}>
-          <Stack rowGap={2}>
+          <Stack rowGap={2} alignItems={'center'}>
             <Typography>An open invitation to:</Typography>
-            <EventTitle />
+            <EventTitle StackProps={{ alignItems: 'center' }} />
             <Typography maxWidth={360} textAlign={'center'}>
               Celebrating life with a night of songful expression, reconnection
               and reverence of Christ.
@@ -30,15 +31,15 @@ export default function Landscape() {
           </Stack>
           <Stack
             direction={'row'}
-            justifyContent={'space-between'}
+            justifyContent={'space-around'}
             alignItems={'flex-start'}
             width={'100%'}>
-            <EventDetails />
+            <EventDetails StackProps={{ alignItems: 'center' }} />
           </Stack>
         </Stack>
-        <Box>
-          <Avatar width={275} />
-        </Box>
+        <Stack justifyContent={'center'}>
+          <Avatar width={330} />
+        </Stack>
       </Stack>
     </Stack>
   );

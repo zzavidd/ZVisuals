@@ -1,18 +1,20 @@
 import type React from 'react';
 
 import Z27WN from 'src/projects/01-z27wn/Canvas';
-import { VARIANTS } from 'src/projects/01-z27wn/config/variants';
+import Z27WNVariants from 'src/projects/01-z27wn/config/variants';
+import WhomHaveI from 'src/projects/02-whomhavei/Canvas';
+import WhomHaveIVariants from 'src/projects/02-whomhavei/config/variants';
 
 export const PROJECTS: ProjectMap = {
   '01-z27wn': {
     name: '#Z27 Worship Night',
     Canvas: Z27WN,
-    variants: VARIANTS,
+    variants: Z27WNVariants,
   },
   '02-whomhavei': {
     name: 'Whom Have I (Cover Art)',
-    Canvas: Z27WN,
-    variants: VARIANTS,
+    Canvas: WhomHaveI,
+    variants: WhomHaveIVariants,
   },
 };
 

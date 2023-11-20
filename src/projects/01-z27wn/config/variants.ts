@@ -1,11 +1,32 @@
 import { UNIT } from 'src/utils/constants';
 
-import Landscape from '../Landscape';
+import ChurchAdvert from '../ChurchAdvert';
+import EventBrite from '../EventBrite';
 import Portrait from '../Portrait';
 import Portrait2 from '../Portrait2';
 import Portrait3 from '../Portrait3';
 
-export const VARIANTS: Variant[] = [
+const VARIANTS: Variant[] = [
+  {
+    label: 'ChurchAdvert',
+    Component: ChurchAdvert,
+    settings: {
+      height: UNIT * 9,
+      width: UNIT * 16,
+      objectPosition: '0 -200px',
+      padding: 6,
+    },
+  },
+  {
+    label: 'EventBrite',
+    Component: EventBrite,
+    settings: {
+      height: UNIT * 9,
+      width: UNIT * 18,
+      objectPosition: '0 -200px',
+      padding: 6,
+    },
+  },
   {
     label: 'Portrait',
     Component: Portrait,
@@ -36,14 +57,6 @@ export const VARIANTS: Variant[] = [
       padding: 5,
     },
   },
-  {
-    label: 'Landscape',
-    Component: Landscape,
-    settings: {
-      height: UNIT * 9,
-      width: UNIT * 16,
-      objectPosition: '0 -200px',
-      padding: 6,
-    },
-  },
 ];
+
+export default VARIANTS;

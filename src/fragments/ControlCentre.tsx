@@ -49,7 +49,7 @@ export default function ControlCentre({
   }
 
   return (
-    <Grid container={true}>
+    <Grid container={true} flex={1}>
       <Drawer
         variant={'permanent'}
         sx={{ width: DRAWER_WIDTH }}
